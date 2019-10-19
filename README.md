@@ -41,6 +41,7 @@ You can install k-rail using the helm chart in [`deploy/helm`](deploy/helm).
 For Helm 2 and below, it is recommended to use `helm template` rather than Tiller:
 
 ```bash
+kubectl create namespace k-rail
 helm template --namespace k-rail deploy/helm | kubectl apply -f - 
 ```
 
@@ -50,7 +51,7 @@ You can adjust the configuration and manage the exemptions in [`values.yaml`](de
 Test the default configuration by applying the non-compliant deployment:
 
 ```bash
-kubectl apply -n default -f deploy/non-compliant-deployment.yaml
+kubectl apply -f deploy/non-compliant-deployment.yaml
 ```
 
 # Viewing policy violations
